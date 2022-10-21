@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Online Shopping</string>
+    <string name="home">Home</string>
+    <string name="basket">Basket</string>
+    <string name="profile">Profile</string>
+    <string name="to_basket">Savatchaga</string>
+    <string name="in_basket">Savatchada</string>
+    <string name="cancel">Cancel</string>
+    <string name="search">Search</string>
+    <string name="confirm_order">Confirm order</string>
+    <string name="order_value">Order value</string>
+    <string name="phone_number">Phone number</string>
+    <string name="enter_the_phone_number">Enter the phone number</string>
+    <string name="enter_name">Enter your name</string>
+    <string name="next">Next</string>
+    <string name="delivery_method">Delivery method</string>
+    <string name="delivery_address">Delivery address</string>
+    <string name="comment">Comment</string>
+    <string name="add_comment">Add comment</string>
+    <string name="products">Products</string>
+    <string name="error">Error</string>
+    <string name="message">Message</string>
+    <string name="success">Success</string>
+    <string name="yes">Yes</string>
+    <string name="my_orders">My orders</string>
+    <string name="history">History</string>
+    <string name="active">Active</string>
+    <string name="confirm">Confirm</string>
+    <string name="branches">Branches</string>
+    <string name="settings">Settings</string>
+    <string name="service">Services</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="name">Name</string>
+    <string name="phone">Phone</string>
+    <string name="birthday">Birthday</string>
+</resources>

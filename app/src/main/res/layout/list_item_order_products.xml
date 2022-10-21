@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="12dp">
+
+    <TextView
+        android:id="@+id/tv_order_product_name_with_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_semi_bold"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        tools:text="Max Way burgers" />
+
+    <TextView
+        android:id="@+id/tv_order_product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/sf_pro_semi_bold"
+        android:textSize="15sp"
+        tools:ignore="RelativeOverlap"
+        tools:text="12 000 sum" />
+
+</RelativeLayout>
