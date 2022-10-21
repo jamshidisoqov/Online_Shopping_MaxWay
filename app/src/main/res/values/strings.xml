@@ -33,4 +33,6 @@
     <string name="name">Name</string>
     <string name="phone">Phone</string>
     <string name="birthday">Birthday</string>
+    <string name="contingency_policy">Contingency policy</string>
+    <string name="language">Language</string>
 </resources>

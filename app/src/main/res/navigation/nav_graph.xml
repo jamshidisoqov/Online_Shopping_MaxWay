@@ -69,4 +69,14 @@
         tools:layout="@layout/screen_branches"
         android:name="uz.gita.online_shopping.presentation.screens.branches.BranchesScreen"
         android:label="BranchesScreen" />
+    <fragment
+        android:id="@+id/serviceScreen"
+        tools:layout="@layout/screen_service"
+        android:name="uz.gita.online_shopping.presentation.screens.service.ServiceScreen"
+        android:label="ServiceScreen" />
+    <fragment
+        android:id="@+id/settingsScreen"
+        tools:layout="@layout/screen_settings"
+        android:name="uz.gita.online_shopping.presentation.screens.settings.SettingsScreen"
+        android:label="SettingsScreen" />
 </navigation>
