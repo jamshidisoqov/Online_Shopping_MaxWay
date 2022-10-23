@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:fontFamily="@font/sf_pro_semi_bold"
-            android:text="@string/phone_number"
+            android:text="@string/login"
             android:textColor="@color/black"
             android:textSize="17sp" />
     </RelativeLayout>
@@ -42,10 +42,13 @@
         app:layout_constraintTop_toBottomOf="@id/action_bar_container"
         app:layout_constraintVertical_bias="0.2">
 
-        <EditText
+        <com.vicmikhailau.maskededittext.MaskedEditText
             android:id="@+id/input_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:mask="+998 ## ### ## ##"
+            android:minEms="4"
+            android:text="@string/_998"
             android:hint="@string/enter_the_phone_number"
             android:importantForAutofill="no"
             tools:ignore="TextFields" />
@@ -86,9 +89,11 @@
         android:background="@drawable/bg_to_basket_btn"
         android:text="@string/next"
         android:textColor="@color/white"
+        app:layout_constraintVertical_bias="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_name" />
 
 
 

@@ -21,7 +21,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    private const val BASE_URL = ""
+    private const val BASE_URL = "https://restcountries.com/v2/all/"
 
     private const val CONNECTION_TIME_OUT = 5000L
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "699227353940",
+    "project_id": "online-shopping-7a19e",
+    "storage_bucket": "online-shopping-7a19e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699227353940:android:9e70d79b1953ba56280ec1",
+        "android_client_info": {
+          "package_name": "uz.gita.online_shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699227353940-pl5qgsass2b34d973tbi6skajdq61b01.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8PDSwR-behflhqT62TzeF0rbcfUVVWXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699227353940-pl5qgsass2b34d973tbi6skajdq61b01.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,7 +11,7 @@ class MySharedPref @Inject constructor(
     sharedPreferences: SharedPreferences
 ) : SharedPreference(ctx, sharedPreferences) {
 
-    var token: String by Strings()
+    var token: String by Strings("")
 
     var phone: String by Strings()
 

@@ -28,7 +28,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_time.xml" value="0.1415" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_up.xml" value="0.1175" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/nav_item_colour_selected.xml" value="0.1945" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/activity_main.xml" value="0.136" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/basket_list_item_products.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_confirm.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_error.xml" value="0.2039333048311244" />
@@ -60,6 +60,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_search_products.xml" value="0.20307823856348867" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_service.xml" value="0.165625" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_settings.xml" value="0.16493055555555555" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_splash.xml" value="0.16493055555555555" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/search_list_item_products.xml" value="0.20307823856348867" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/menu/bottom_main_menu.xml" value="0.20307823856348867" />
       </map>

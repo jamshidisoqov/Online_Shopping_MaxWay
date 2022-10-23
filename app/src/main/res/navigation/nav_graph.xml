@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/mainScreen"
@@ -34,11 +34,13 @@
     </fragment>
     <fragment
         android:id="@+id/passwordCheckoutScreen"
+        tools:layout="@layout/screen_password_checkout"
         android:name="uz.gita.online_shopping.presentation.screens.login.checkout_password.PasswordCheckoutScreen"
         android:label="PasswordCheckoutScreen">
         <action
             android:id="@+id/action_passwordCheckoutScreen_to_mainScreen"
-            app:destination="@id/mainScreen" />
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/searchProductsScreen"
@@ -66,17 +68,31 @@
         tools:layout="@layout/screen_profile_details" />
     <fragment
         android:id="@+id/branchesScreen"
-        tools:layout="@layout/screen_branches"
         android:name="uz.gita.online_shopping.presentation.screens.branches.BranchesScreen"
-        android:label="BranchesScreen" />
+        android:label="BranchesScreen"
+        tools:layout="@layout/screen_branches" />
     <fragment
         android:id="@+id/serviceScreen"
-        tools:layout="@layout/screen_service"
         android:name="uz.gita.online_shopping.presentation.screens.service.ServiceScreen"
-        android:label="ServiceScreen" />
+        android:label="ServiceScreen"
+        tools:layout="@layout/screen_service" />
     <fragment
         android:id="@+id/settingsScreen"
-        tools:layout="@layout/screen_settings"
         android:name="uz.gita.online_shopping.presentation.screens.settings.SettingsScreen"
-        android:label="SettingsScreen" />
+        android:label="SettingsScreen"
+        tools:layout="@layout/screen_settings" />
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="uz.gita.online_shopping.presentation.screens.splash.SplashScreen"
+        android:label="SplashScreen"
+        tools:layout="@layout/screen_splash">
+        <action
+            android:id="@+id/action_splashScreen_to_loginScreen"
+            app:destination="@id/loginScreen"
+            app:popUpTo="@id/nav_graph" />
+        <action
+            android:id="@+id/action_splashScreen_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/nav_graph" />
+    </fragment>
 </navigation>

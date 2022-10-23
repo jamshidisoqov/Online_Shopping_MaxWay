@@ -15,4 +15,5 @@
     <color name="dark_grey">#818C99</color>
     <color name="error_color">#F44336</color>
     <color name="success_color">#4CAF50</color>
+    <color name="yellow">#FFC107</color>
 </resources>

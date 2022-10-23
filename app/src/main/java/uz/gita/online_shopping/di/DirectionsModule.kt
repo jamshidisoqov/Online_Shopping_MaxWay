@@ -4,14 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import uz.gita.online_shopping.directions.BasketScreenDirections
-import uz.gita.online_shopping.directions.MainScreenDirection
-import uz.gita.online_shopping.directions.OrderScreenDirection
-import uz.gita.online_shopping.directions.ProfileScreenDirections
-import uz.gita.online_shopping.directions.impl.BasketScreenDirectionsImpl
-import uz.gita.online_shopping.directions.impl.MainScreenDirectionImpl
-import uz.gita.online_shopping.directions.impl.OrderScreenDirectionImpl
-import uz.gita.online_shopping.directions.impl.ProfileScreenDirectionsImpl
+import uz.gita.online_shopping.directions.*
+import uz.gita.online_shopping.directions.impl.*
 
 // Created by Jamshid Isoqov an 10/12/2022
 @Module
@@ -28,6 +22,15 @@ interface DirectionsModule {
     fun bindsBasketScreen(impl: BasketScreenDirectionsImpl): BasketScreenDirections
 
     @Binds
-    fun bindsProfileScreen(impl: ProfileScreenDirectionsImpl): ProfileScreenDirections
+    fun bindsProfileScreen(impl: ProfileScreenDirectionsImpl): ProfileScreenDirection
+
+    @Binds
+    fun bindSplashScreen(impl: SplashScreenDirectionsImpl): SplashScreenDirection
+
+    @Binds
+    fun bindLoginScreen(impl: LoginScreenDirectionImpl): LoginScreenDirection
+
+    @Binds
+    fun bindPasswordCheckoutScreen(impl: PasswordCheckoutScreenDirectionImpl): PasswordCheckoutScreenDirection
 
 }

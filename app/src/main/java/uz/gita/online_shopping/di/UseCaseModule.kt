@@ -4,9 +4,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
+import uz.gita.online_shopping.domain.LoginUseCase
 import uz.gita.online_shopping.domain.MainUseCase
 import uz.gita.online_shopping.domain.OrderUseCase
 import uz.gita.online_shopping.domain.ProfileUseCase
+import uz.gita.online_shopping.domain.impl.LoginUseCaseImpl
 import uz.gita.online_shopping.domain.impl.MainUseCaseImpl
 import uz.gita.online_shopping.domain.impl.OrderUseCaseImpl
 import uz.gita.online_shopping.domain.impl.ProfileUseCaseImpl
@@ -24,4 +26,7 @@ interface UseCaseModule {
 
     @Binds
     fun bindProfileUseCase(impl: ProfileUseCaseImpl): ProfileUseCase
+
+    @Binds
+    fun bindLoginUseCase(impl: LoginUseCaseImpl): LoginUseCase
 }

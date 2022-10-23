@@ -15,4 +15,8 @@ interface ProfileUseCase {
 
     suspend fun setBirthday(birthday: String)
 
+    suspend fun getToken(): String
+
+    suspend fun setToken(token: String)
+
 }

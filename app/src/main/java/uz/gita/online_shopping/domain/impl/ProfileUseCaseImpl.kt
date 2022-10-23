@@ -20,4 +20,10 @@ class ProfileUseCaseImpl @Inject constructor(
 
     override suspend fun setBirthday(birthday: String) = repository.setBirthday(birthday)
 
+    override suspend fun getToken(): String = repository.getToken()
+
+    override suspend fun setToken(token: String) {
+        repository.setToken(token)
+    }
+
 }

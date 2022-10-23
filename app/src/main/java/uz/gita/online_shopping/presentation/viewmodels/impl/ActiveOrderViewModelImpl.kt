@@ -3,6 +3,7 @@ package uz.gita.online_shopping.presentation.viewmodels.impl
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -12,7 +13,7 @@ import uz.gita.online_shopping.presentation.viewmodels.ActiveOrderViewModel
 import uz.gita.online_shopping.utils.extensions.getMessage
 import javax.inject.Inject
 
-@AndroidEntryPoint
+@HiltViewModel
 class ActiveOrderViewModelImpl @Inject constructor(
     private val orderUseCase: OrderUseCase
 ) : ActiveOrderViewModel, ViewModel() {

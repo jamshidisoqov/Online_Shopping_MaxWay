@@ -151,6 +151,12 @@ class MaxWayRepositoryImpl @Inject constructor(
         mySharedPref.birthday = birthday
     }
 
+    override suspend fun getToken(): String = mySharedPref.token
+
+    override suspend fun setToken(token: String) {
+        mySharedPref.token = token
+    }
+
 
 }
 

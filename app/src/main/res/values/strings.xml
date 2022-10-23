@@ -35,4 +35,7 @@
     <string name="birthday">Birthday</string>
     <string name="contingency_policy">Contingency policy</string>
     <string name="language">Language</string>
+    <string name="confirm_code">Confirm code</string>
+    <string name="login">Login</string>
+    <string name="_998">+998</string>
 </resources>
