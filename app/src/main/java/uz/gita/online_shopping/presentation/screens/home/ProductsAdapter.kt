@@ -2,6 +2,7 @@ package uz.gita.online_shopping.presentation.screens.home
 
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -52,19 +53,20 @@ class ProductsAdapter : ListAdapter<ProductWithCount, ProductsAdapter.ViewHolder
             }
         }
 
-        @SuppressLint("SetTextI18n", "ResourceAsColor")
+        @SuppressLint("SetTextI18n")
         fun onBind() {
             val data = getItem(absoluteAdapterPosition)
             binding.apply {
                 tvProductName.text = data.productData.name
+                tvProductName.setSingleLine()
                 tvProductPrice.text = data.productData.price.getFinanceType()
                 btnBasket.apply {
                     if (data.count == 0) {
                         text = resources.getString(R.string.to_basket)
-                        setTextColor(ColorStateList.valueOf(R.color.white))
                         setBackgroundResource(R.drawable.bg_to_basket_btn)
+                        setTextColor(Color.parseColor("#ffffff"))
                     } else {
-                        setTextColor(R.color.black)
+                        setTextColor(Color.parseColor("#000000"))
                         setBackgroundResource(R.drawable.bg_in_basket_btn)
                         text = resources.getString(R.string.in_basket)
                     }

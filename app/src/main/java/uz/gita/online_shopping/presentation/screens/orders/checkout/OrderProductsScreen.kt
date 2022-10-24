@@ -6,7 +6,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -26,6 +28,8 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
     private val viewModel: OrderProductsViewModel by viewModels<OrderProductsViewModelImpl>()
 
     private val viewBinding: ScreenOrderProductsBinding by viewBinding()
+
+    private lateinit var address: LatLng
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -53,27 +57,46 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
             if (it) {
                 viewBinding.imageCheckDelivery.visible()
                 viewBinding.imageCheckOnTheWay.inVisible()
-                viewBinding.containerMap.gone()
+                viewBinding.containerMap.visible()
             } else {
                 viewBinding.imageCheckDelivery.inVisible()
                 viewBinding.imageCheckOnTheWay.visible()
-                viewBinding.containerMap.visible()
+                viewBinding.containerMap.gone()
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
+        viewBinding.apply {
+
+            containerOnTheWay.setOnClickListener { viewModel.setDeliveryMethod(false) }
+
+            containerDelivery.setOnClickListener { viewModel.setDeliveryMethod(true) }
+
+            containerMap.setOnClickListener {
+                findNavController().navigate(OrderProductsScreenDirections.actionOrderProductsScreenToOrderMapFragment())
+            }
+        }
+
+        Basket.locationLiveData.observe(viewLifecycleOwner) {
+            address = it.second
+            viewBinding.tvMapDeliveryAddress.text = it.first
+        }
+
         Basket.productsListLiveData.observe(viewLifecycleOwner) {
-            loadOrders(it)
+            loadOrders(it.filter { it.count > 0 })
         }
     }
 
     @SuppressLint("SetTextI18n")
     private fun loadOrders(list: List<ProductWithCount>) {
+        var summ = 0.0
         for (i in list) {
+            summ += i.count * i.productData.price
             val orderBinding = ListItemOrderProductsBinding.inflate(layoutInflater)
-            orderBinding.tvOrderProductNameWithCount.text = "${i.productData.name} ${i.count}"
+            orderBinding.tvOrderProductNameWithCount.text = "${i.productData.name} ${i.count}x"
             orderBinding.tvOrderProductPrice.text = i.productData.price.getFinanceType()
             viewBinding.productsContainer.addView(orderBinding.root)
         }
+        viewBinding.tvOrderAllSum.text = summ.getFinanceType()
     }
 
 }

@@ -20,9 +20,10 @@ interface OrderProductsViewModel {
 
     val deliveryAddress: StateFlow<String>
 
-    fun openMap()
 
     fun setDeliveryAddress(address: Address)
 
     fun orderConfirmClick(orderDto: OrderDto)
+
+    fun setDeliveryMethod(isDelivery:Boolean)
 }

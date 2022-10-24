@@ -33,61 +33,59 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <ImageView
-            android:id="@+id/image_delete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="8dp"
-            android:padding="8dp"
-            android:src="@drawable/ic_delete"
-            tools:ignore="ContentDescription" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="12dp"
-        android:layout_weight="1"
-        android:background="@drawable/bg_products_list_item"
-        android:padding="8dp">
+        android:layout_weight="1">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_products"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:itemCount="3"
-            tools:listitem="@layout/basket_list_item_products" />
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_products_list_item"
+            android:padding="8dp"
+            tools:ignore="UselessParent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="6dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="3"
+                tools:listitem="@layout/basket_list_item_products" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/list_products"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/sf_pro_semi_bold"
-            android:text="@string/order_value"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_products"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/sf_pro_semi_bold"
+                android:text="@string/order_value"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
-        <TextView
-            android:id="@+id/tv_order_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/list_products"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/sf_pro_semi_bold"
-            android:textColor="@color/black"
-            android:textSize="17sp"
-            tools:text="514 000 sum" />
+            <TextView
+                android:id="@+id/tv_order_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_products"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/sf_pro_semi_bold"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                tools:text="514 000 sum" />
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -96,9 +94,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_to_basket_btn"
         android:text="@string/confirm"
-        android:textColor="@color/white"
-        android:background="@drawable/bg_to_basket_btn" />
+        android:textColor="@color/white" />
 
 
 </LinearLayout>

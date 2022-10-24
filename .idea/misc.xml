@@ -22,6 +22,9 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_edit.xml" value="0.1365" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_home_fill.xml" value="0.1945" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1945" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_light_red_pin.xml" value="0.1" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_map_pin.xml" value="0.1" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_my_location.xml" value="0.1" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_plus.xml" value="0.1175" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_right.xml" value="0.1175" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/ic_search.xml" value="0.1175" />
@@ -33,7 +36,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_confirm.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_error.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_message.xml" value="0.20307823856348867" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_progress.xml" value="0.2039333048311244" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_progress.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_succces.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_success.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/list_item_active_orders.xml" value="0.20307823856348867" />
@@ -41,17 +44,17 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/list_item_category.xml" value="0.2" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/list_item_history_orders.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/list_item_order_products.xml" value="0.2039333048311244" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/list_item_products.xml" value="0.2" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/list_item_products.xml" value="0.16" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/page_active_orders.xml" value="0.2039333048311244" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/page_history_orders.xml" value="0.2039333048311244" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_basket.xml" value="0.20307823856348867" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_basket.xml" value="0.12" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_branches.xml" value="0.152" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_home.xml" value="0.136" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_login.xml" value="0.152" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_main.xml" value="0.152" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_map.xml" value="0.2039333048311244" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_main.xml" value="0.1" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_map.xml" value="0.12" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_order_details.xml" value="0.2039333048311244" />
-        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_order_products.xml" value="0.176" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_order_products.xml" value="0.12" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_orders.xml" value="0.10400000000000001" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_password_checkout.xml" value="0.16" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/screen_product_details.xml" value="0.176" />

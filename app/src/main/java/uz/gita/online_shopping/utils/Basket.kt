@@ -1,7 +1,7 @@
 package uz.gita.online_shopping.utils
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.google.android.gms.maps.model.LatLng
 import uz.gita.online_shopping.data.models.ProductData
 import uz.gita.online_shopping.data.models.ProductWithCount
 
@@ -15,19 +15,19 @@ object Basket {
 
     private var productsList = ArrayList<ProductWithCount>()
 
+    var locationLiveData = MutableLiveData<Pair<String,LatLng>>()
+
     fun setList(list: List<ProductData>) {
 
         productsList.addAll(list.map {
             ProductWithCount(it, 0)
         })
-        productsListLiveData.value = productsList
+        productsListLiveData.value = productsList.toMutableList()
 
     }
 
     fun addProduct(productWithCount: ProductWithCount) {
         val index = findIndex(productWithCount)
-        Log.d("TTT", "addProduct: $productWithCount")
-        Log.d("TTT", "addProduct: $index")
         if (index != -1) {
             val data = productsList[index]
             productsList[index] = data.copy(count = data.count + 1)
@@ -48,10 +48,10 @@ object Basket {
     fun removeProduct(productWithCount: ProductWithCount) {
         val index = findIndex(productWithCount)
         if (index != -1) {
-            val data = productsList[index]
-            productsList[index] = data.copy(count = data.count - 1)
-            productsListLiveData.value = productsList
+            productsList[index] = productWithCount.copy(count = productWithCount.count - 1)
+            productsListLiveData.value = productsList.toMutableList()
         }
     }
+
 
 }

@@ -6,14 +6,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import uz.gita.online_shopping.data.models.ProductWithCount
-import uz.gita.online_shopping.directions.BasketScreenDirections
+import uz.gita.online_shopping.directions.BasketScreenDirection
 import uz.gita.online_shopping.presentation.viewmodels.BasketViewModel
 import uz.gita.online_shopping.utils.Basket
 import javax.inject.Inject
 
 @HiltViewModel
 class BasketViewModelImpl @Inject constructor(
-    private val basketScreenDirections: BasketScreenDirections
+    private val basketScreenDirections: BasketScreenDirection
 ) : BasketViewModel, ViewModel() {
 
     override val loadingSharedFlow = MutableSharedFlow<Boolean>()

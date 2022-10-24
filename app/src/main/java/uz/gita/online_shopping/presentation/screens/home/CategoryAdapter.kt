@@ -1,6 +1,6 @@
 package uz.gita.online_shopping.presentation.screens.home
 
-import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -28,20 +28,26 @@ class CategoryAdapter :
         init {
             binding.tvCategoryName.setOnClickListener {
                 categorySelectedListener?.invoke(getItem(absoluteAdapterPosition))
+                selectedPos = if (selectedPos == absoluteAdapterPosition) {
+                    -1
+                } else {
+                    notifyItemChanged(selectedPos)
+                    absoluteAdapterPosition
+                }
+                notifyItemChanged(absoluteAdapterPosition)
             }
         }
 
 
-        @SuppressLint("ResourceAsColor")
         fun onBind() {
             binding.apply {
                 tvCategoryName.apply {
                     if (selectedPos == absoluteAdapterPosition) {
                         setBackgroundResource(R.drawable.bg_category_item_selected)
-                        setTextColor(R.color.white)
+                        setTextColor(Color.parseColor("#ffffff"))
                     } else {
                         setBackgroundResource(R.drawable.bg_category_item_unselected)
-                        setTextColor(R.color.black)
+                        setTextColor(Color.parseColor("#000000"))
                     }
                     text = getItem(absoluteAdapterPosition).name
                 }

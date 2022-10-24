@@ -1,6 +1,9 @@
 package uz.gita.online_shopping.presentation.screens.home
 
+import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -10,10 +13,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.gita.online_shopping.R
+import uz.gita.online_shopping.data.models.ProductWithCount
 import uz.gita.online_shopping.databinding.ScreenHomeBinding
 import uz.gita.online_shopping.presentation.viewmodels.HomeViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.HomeViewModelImpl
 import uz.gita.online_shopping.utils.Basket
+import uz.gita.online_shopping.utils.extensions.getFinanceType
 import uz.gita.online_shopping.utils.extensions.hideProgress
 import uz.gita.online_shopping.utils.extensions.showProgress
 
@@ -25,6 +30,7 @@ class HomeScreen : Fragment(R.layout.screen_home) {
 
     private val viewBinding: ScreenHomeBinding by viewBinding()
 
+
     private val categoryAdapter: CategoryAdapter by lazy(LazyThreadSafetyMode.NONE) {
         CategoryAdapter()
     }
@@ -32,11 +38,6 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         ProductsAdapter()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.getAllCategories()
-        viewModel.getAllProducts()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -74,6 +75,11 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         Basket.productsListLiveData.observe(viewLifecycleOwner) {
             productAdapter.submitList(it)
         }
+
+        viewModel.getAllCategories()
+        viewModel.getAllProducts()
     }
+
+
 
 }

@@ -5,4 +5,13 @@
         <item name="cornerSize">12dp</item>
     </style>
 
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.InnerBottom" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">12dp</item>
+        <item name="cornerSizeTopLeft">12dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+    </style>
+
 </resources>

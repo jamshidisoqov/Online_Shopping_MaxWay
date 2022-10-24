@@ -39,4 +39,15 @@
     <string name="login">Login</string>
     <string name="_998">+998</string>
     <string name="orders">Orders</string>
+    <string name="on_the_way">On the way</string>
+    <string name="delivery">Delivery</string>
+    <string name="nukus">Nukus</string>
+
+
+    <string name="fine_permission_denied_explanation">В разрешении на определение точного местоположения было отказано, но оно необходимо для основных функций.</string>
+    <string name="permission_approved_explanation">Вы одобрили расположение FINE, продолжайте (и нажимайте) дальше!</string>
+    <string name="enable_location">Включить местоположение</string>
+    <string name="location_settings">Включить</string>
+    <string name="enable_location_message">GPS отключен.\nПожалуйста, включите геолокацию</string>
+
 </resources>

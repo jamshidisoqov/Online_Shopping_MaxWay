@@ -71,6 +71,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/container_on_the_way"
                     android:layout_width="match_parent"
                     android:layout_marginTop="16dp"
                     android:orientation="horizontal"
@@ -87,7 +88,7 @@
                         android:fontFamily="@font/sf_pro_semi_bold"
                         android:gravity="center_vertical"
                         android:padding="8dp"
-                        android:text="@string/delivery_method"
+                        android:text="@string/on_the_way"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"
@@ -111,6 +112,7 @@
                     android:background="@color/light_grey" />
 
                 <LinearLayout
+                    android:id="@+id/container_delivery"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_marginTop="8dp"
@@ -128,7 +130,7 @@
                         android:fontFamily="@font/sf_pro_semi_bold"
                         android:gravity="center_vertical"
                         android:padding="8dp"
-                        android:text="@string/delivery_method"
+                        android:text="@string/delivery"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"
@@ -152,6 +154,7 @@
                 android:background="@drawable/bg_products_list_item"
                 android:orientation="vertical"
                 android:padding="12dp"
+                android:visibility="gone"
                 tools:ignore="UselessParent">
 
                 <TextView
@@ -267,8 +270,8 @@
                         android:fontFamily="@font/sf_pro_semi_bold"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        tools:text="304 000 sum"
-                        tools:ignore="RelativeOverlap" />
+                        tools:ignore="RelativeOverlap"
+                        tools:text="304 000 sum" />
                 </RelativeLayout>
 
 

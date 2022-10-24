@@ -69,7 +69,11 @@
         android:id="@+id/orderProductsScreen"
         android:name="uz.gita.online_shopping.presentation.screens.orders.checkout.OrderProductsScreen"
         android:label="OrderProductsScreen"
-        tools:layout="@layout/screen_order_products" />
+        tools:layout="@layout/screen_order_products" >
+        <action
+            android:id="@+id/action_orderProductsScreen_to_orderMapFragment"
+            app:destination="@id/orderMapFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileDetails"
         android:name="uz.gita.online_shopping.presentation.screens.profile.details.ProfileDetails"
@@ -113,4 +117,9 @@
             android:id="@+id/action_basketScreen_to_orderProductsScreen"
             app:destination="@id/orderProductsScreen" />
     </fragment>
+    <fragment
+        android:id="@+id/orderMapFragment"
+        tools:layout="@layout/screen_map"
+        android:name="uz.gita.online_shopping.presentation.screens.orders.checkout.map.OrderMapFragment"
+        android:label="OrderMapFragment" />
 </navigation>

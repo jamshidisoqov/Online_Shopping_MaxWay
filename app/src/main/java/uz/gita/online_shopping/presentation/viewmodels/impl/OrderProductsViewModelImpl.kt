@@ -32,10 +32,6 @@ class OrderProductsViewModelImpl @Inject constructor(
 
     override val deliveryAddress = MutableStateFlow("Delivery address")
 
-    override fun openMap() {
-
-    }
-
     override fun setDeliveryAddress(address: Address) {
 
     }
@@ -56,5 +52,9 @@ class OrderProductsViewModelImpl @Inject constructor(
                 loadingFlow.emit(false)
             }
         }
+    }
+
+    override fun setDeliveryMethod(isDelivery: Boolean) {
+        viewModelScope.launch { isDeliveryFlow.emit(isDelivery) }
     }
 }

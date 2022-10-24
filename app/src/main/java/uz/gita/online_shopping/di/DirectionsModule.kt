@@ -19,7 +19,7 @@ interface DirectionsModule {
     fun bindOrderScreen(impl: OrderScreenDirectionImpl): OrderScreenDirection
 
     @Binds
-    fun bindsBasketScreen(impl: BasketScreenDirectionsImpl): BasketScreenDirections
+    fun bindsBasketScreen(impl: BasketScreenDirectionsImpl): BasketScreenDirection
 
     @Binds
     fun bindsProfileScreen(impl: ProfileScreenDirectionsImpl): ProfileScreenDirection

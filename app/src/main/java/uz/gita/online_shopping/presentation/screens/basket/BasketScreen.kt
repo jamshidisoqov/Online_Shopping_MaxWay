@@ -6,14 +6,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import uz.gita.online_shopping.R
 import uz.gita.online_shopping.data.models.ProductWithCount
 import uz.gita.online_shopping.databinding.ScreenBasketBinding
+import uz.gita.online_shopping.presentation.dialogs.ConfirmDialog
 import uz.gita.online_shopping.presentation.viewmodels.BasketViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.BasketViewModelImpl
 import uz.gita.online_shopping.utils.Basket
@@ -57,10 +61,22 @@ class BasketScreen : Fragment(R.layout.screen_basket) {
         adapter.setItemRemovedListener {
             viewModel.removeProduct(it)
         }
-        Basket.productsListLiveData.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-            tvPriceAnimator(it)
+        Basket.productsListLiveData.observe(viewLifecycleOwner) { list ->
+            val news = list.filter { it.count > 0 }
+            viewBinding.btnConfirmOrder.isEnabled = news.isNotEmpty()
+            adapter.submitList(news)
+            tvPriceAnimator(news)
         }
+        viewBinding.btnConfirmOrder.setOnClickListener {
+            viewModel.confirmClicked()
+        }
+        viewModel.openConfirmDialog.onEach {
+            val confirmDialog = ConfirmDialog(requireContext())
+            confirmDialog.setConfirmClickListener {
+                viewModel.navigateOrderCheckoutScreen()
+            }
+            confirmDialog.show()
+        }.launchIn(lifecycleScope)
 
     }
 
@@ -71,7 +87,10 @@ class BasketScreen : Fragment(R.layout.screen_basket) {
             sum += it.productData.price * it.count
         }
         ValueAnimator.ofFloat(oldSum.toFloat(), sum.toFloat()).apply {
-            viewBinding.tvOrderValue.text = (animatedValue as Float).toBigDecimal().getFinanceType()
+            addUpdateListener {
+                viewBinding.tvOrderValue.text =
+                    (it.animatedValue as Float).toDouble().getFinanceType()
+            }
             duration = 1000L
             start()
         }

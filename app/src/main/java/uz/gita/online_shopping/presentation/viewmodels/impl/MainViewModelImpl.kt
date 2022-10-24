@@ -31,7 +31,7 @@ class MainViewModelImpl @Inject constructor(
                         summ += i.count * i.productData.price
                     }
                 }
-                basketFlow.postValue(summ)
+                basketFlow.value = summ
             }
         }
     }

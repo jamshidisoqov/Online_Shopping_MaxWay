@@ -35,7 +35,7 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold"
-            tools:text="Basket" />
+            android:text="@string/basket" />
 
         <TextView
             android:id="@+id/tv_products_price"
