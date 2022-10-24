@@ -94,4 +94,10 @@ class HomeViewModelImpl @Inject constructor(
             direction.navigateProductsDetailsScreen(productWithCount)
         }
     }
+
+    override fun searchClicked() {
+        viewModelScope.launch {
+            direction.navigateSearchScreen()
+        }
+    }
 }

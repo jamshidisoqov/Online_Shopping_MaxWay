@@ -1,6 +1,7 @@
 package uz.gita.online_shopping.presentation.screens.home
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -60,7 +61,7 @@ class ProductsAdapter : ListAdapter<ProductWithCount, ProductsAdapter.ViewHolder
                 btnBasket.apply {
                     if (data.count == 0) {
                         text = resources.getString(R.string.to_basket)
-                        setTextColor(R.color.white)
+                        setTextColor(ColorStateList.valueOf(R.color.white))
                         setBackgroundResource(R.drawable.bg_to_basket_btn)
                     } else {
                         setTextColor(R.color.black)

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/sf_pro_semi_bold"
             android:textColor="@color/black"
-            android:textSize="26sp"
+            android:textSize="24sp"
             tools:ignore="RelativeOverlap"
             tools:text="Isoqov Jamshid" />
 

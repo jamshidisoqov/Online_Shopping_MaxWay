@@ -1,5 +1,6 @@
 package uz.gita.online_shopping.utils
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import uz.gita.online_shopping.data.models.ProductData
 import uz.gita.online_shopping.data.models.ProductWithCount
@@ -25,10 +26,12 @@ object Basket {
 
     fun addProduct(productWithCount: ProductWithCount) {
         val index = findIndex(productWithCount)
+        Log.d("TTT", "addProduct: $productWithCount")
+        Log.d("TTT", "addProduct: $index")
         if (index != -1) {
             val data = productsList[index]
             productsList[index] = data.copy(count = data.count + 1)
-            productsListLiveData.value = productsList
+            productsListLiveData.value = productsList.toMutableList()
         }
     }
 

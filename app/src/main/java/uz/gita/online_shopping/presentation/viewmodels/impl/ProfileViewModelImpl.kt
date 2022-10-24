@@ -27,18 +27,26 @@ class ProfileViewModelImpl @Inject constructor(
     }
 
     override fun editProfile() {
-
+        viewModelScope.launch {
+            direction.openEditProfile()
+        }
     }
 
     override fun openBranches() {
-
+        viewModelScope.launch {
+            direction.openBranches()
+        }
     }
 
     override fun openSettings() {
-
+        viewModelScope.launch {
+            direction.openSettings()
+        }
     }
 
     override fun openServices() {
-
+        viewModelScope.launch {
+            direction.openServices()
+        }
     }
 }

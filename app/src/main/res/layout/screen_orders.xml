@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -14,12 +15,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="12dp"
             android:fontFamily="@font/sf_pro_semi_bold"
             android:text="@string/my_orders"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
             android:textColor="@color/black"
-
-            android:textSize="28sp" />
+            android:textSize="24sp" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_bar_orders"

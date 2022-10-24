@@ -1,11 +1,11 @@
 package uz.gita.online_shopping.presentation.screens
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.NavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.online_shopping.R
@@ -23,10 +23,27 @@ class MainScreen : Fragment(R.layout.screen_main) {
     private val viewModel: MainViewModel by viewModels<MainViewModelImpl>()
 
 
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val navController =
-            Navigation.findNavController(requireActivity(), R.id.fragmentContainerViewMain)
-        viewBinding.bottomNavMain.setupWithNavController(navController)
+
+        viewBinding.mainPager.adapter = MainPagerAdapter(requireActivity())
+        viewBinding.mainPager.isUserInputEnabled = false
+
+        viewBinding.bottomNavMain.setOnItemSelectedListener {
+            val page = when (it.itemId) {
+                R.id.homeScreen -> {
+                    0
+                }
+                R.id.ordersScreen -> {
+                    1
+                }
+                else -> {
+                    2
+                }
+            }
+            viewBinding.mainPager.setCurrentItem(page, true)
+            true
+        }
 
         viewModel.loadingLiveData.observe(viewLifecycleOwner) {
             if (it)
@@ -47,11 +64,5 @@ class MainScreen : Fragment(R.layout.screen_main) {
         viewBinding.containerBasket.setOnClickListener {
             viewModel.navigateBasket()
         }
-
-        viewBinding.tvSearch.setOnClickListener {
-            viewModel.searchClicked()
-        }
-
     }
-
 }

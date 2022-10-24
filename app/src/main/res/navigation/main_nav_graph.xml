@@ -11,13 +11,13 @@
         android:name="uz.gita.online_shopping.presentation.screens.home.HomeScreen"
         android:label="HomeScreen" />
     <fragment
-        android:id="@+id/basketScreen"
-        tools:layout="@layout/screen_basket"
-        android:name="uz.gita.online_shopping.presentation.screens.basket.BasketScreen"
-        android:label="BasketScreen" />
-    <fragment
         android:id="@+id/profileScreen"
         tools:layout="@layout/screen_profile"
         android:name="uz.gita.online_shopping.presentation.screens.profile.ProfileScreen"
         android:label="ProfileScreen" />
+    <fragment
+        android:id="@+id/ordersScreen"
+        tools:layout="@layout/screen_orders"
+        android:name="uz.gita.online_shopping.presentation.screens.orders.OrdersScreen"
+        android:label="OrdersScreen" />
 </navigation>

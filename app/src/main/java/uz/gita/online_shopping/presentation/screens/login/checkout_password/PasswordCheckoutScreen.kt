@@ -40,7 +40,7 @@ class PasswordCheckoutScreen : Fragment(R.layout.screen_password_checkout) {
     @OptIn(FlowPreview::class)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         firebaseAuth = FirebaseAuth.getInstance()
-        //sendVerificationCode("+998907144102")
+        sendVerificationCode("+998907144102")
         viewBinding.btnCheck.clicks()
             .debounce(100L)
             .onEach {

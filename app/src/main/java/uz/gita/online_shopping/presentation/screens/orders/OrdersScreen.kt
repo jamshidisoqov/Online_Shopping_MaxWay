@@ -18,12 +18,10 @@ class OrdersScreen : Fragment(R.layout.screen_orders) {
         viewBinding.apply {
             TabLayoutMediator(tabBarOrders, pagerOrders) { tab, pos ->
                 tab.apply {
-                    if (pos == 0) {
-                        text = resources.getString(R.string.active)
-                        setIcon(R.drawable.ic_check)
+                    text = if (pos == 0) {
+                        resources.getString(R.string.active)
                     } else {
-                        text = resources.getString(R.string.history)
-                        setIcon(R.drawable.ic_calendar)
+                        resources.getString(R.string.history)
                     }
                 }
             }.attach()

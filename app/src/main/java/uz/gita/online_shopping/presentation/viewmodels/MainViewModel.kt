@@ -12,6 +12,4 @@ interface MainViewModel {
 
     fun navigateBasket()
 
-    fun searchClicked()
-
 }

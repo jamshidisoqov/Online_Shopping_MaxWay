@@ -96,6 +96,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
         android:background="@drawable/bg_to_basket_btn" />
 
 

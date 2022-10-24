@@ -5,45 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/action_bar_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:paddingVertical="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_search"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:layout_marginHorizontal="12dp"
-            android:layout_marginVertical="8dp"
-            android:background="@drawable/bg_search_view"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            android:hint="@string/search"
-            android:paddingHorizontal="12dp"
-            app:drawableStartCompat="@drawable/ic_search"
-            tools:ignore="LabelFor" />
-
-    </RelativeLayout>
-
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerViewMain"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/mainPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/action_bar_container"
-        app:navGraph="@navigation/main_nav_graph" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <RelativeLayout
@@ -52,6 +22,7 @@
         android:layout_height="?actionBarSize"
         android:layout_margin="12dp"
         android:background="@drawable/bg_to_basket_btn"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -59,31 +30,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Basket"
-            android:textStyle="bold"
-            android:textSize="15sp"
             android:layout_centerVertical="true"
             android:layout_marginStart="16dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Basket" />
+
         <TextView
             android:id="@+id/tv_products_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="124 000 sum"
-            android:textStyle="bold"
-            android:textSize="15sp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="16dp"
             android:textColor="@color/white"
-            tools:ignore="RelativeOverlap" />
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:ignore="RelativeOverlap"
+            tools:text="124 000 sum" />
     </RelativeLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemIconTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

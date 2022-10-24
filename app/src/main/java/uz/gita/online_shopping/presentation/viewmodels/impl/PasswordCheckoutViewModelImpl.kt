@@ -6,12 +6,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import uz.gita.online_shopping.directions.PasswordCheckoutScreenDirection
+import uz.gita.online_shopping.domain.LoginUseCase
+import uz.gita.online_shopping.domain.ProfileUseCase
 import uz.gita.online_shopping.presentation.viewmodels.PasswordCheckoutViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class PasswordCheckoutViewModelImpl @Inject constructor(
-    private val direction: PasswordCheckoutScreenDirection
+    private val direction: PasswordCheckoutScreenDirection,
+    private val useCase: ProfileUseCase
 ) : PasswordCheckoutViewModel, ViewModel() {
     override val loadingFlow = MutableSharedFlow<Boolean>()
 
@@ -26,6 +29,7 @@ class PasswordCheckoutViewModelImpl @Inject constructor(
             if (password == verifySms) {
                 toastFlow.emit("Account crated")
                 direction.navigateToMain()
+                useCase.setToken("bir zat")
             } else {
                 toastFlow.emit("Sms not verified")
             }

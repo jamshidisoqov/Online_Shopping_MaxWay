@@ -9,13 +9,15 @@ import kotlinx.coroutines.launch
 import uz.gita.online_shopping.data.models.dto.ClientDto
 import uz.gita.online_shopping.directions.LoginScreenDirection
 import uz.gita.online_shopping.domain.LoginUseCase
+import uz.gita.online_shopping.domain.ProfileUseCase
 import uz.gita.online_shopping.presentation.viewmodels.LoginViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModelImpl @Inject constructor(
     private val loginUseCase: LoginUseCase,
-    private val direction: LoginScreenDirection
+    private val direction: LoginScreenDirection,
+    private val profileUseCase: ProfileUseCase
 ) : LoginViewModel, ViewModel() {
 
     override val loadingFlow = MutableSharedFlow<Boolean>()
@@ -30,7 +32,7 @@ class LoginViewModelImpl @Inject constructor(
         viewModelScope.launch {
             if (phone.length < 17) {
                 toastFlow.emit("Phone number input incorrect")
-               cancel()
+                cancel()
             }
             if (name.isEmpty()) {
                 toastFlow.emit("Name is required")
@@ -38,6 +40,9 @@ class LoginViewModelImpl @Inject constructor(
             }
             loginUseCase.loginUser(ClientDto(phone, name))
                 .onSuccess {
+                    profileUseCase.setName(it.name)
+                    profileUseCase.setPhone(it.phone)
+                    profileUseCase.setToken(it.token)
                     direction.navigateToPasswordChecker()
                 }
         }

@@ -13,7 +13,7 @@ class MainScreenDirectionImpl @Inject constructor(
         navigator.navigateTo(MainScreenDirections.actionMainScreenToSearchProductsScreen())
 
     override suspend fun navigateBasketScreen() =
-        navigator.navigateTo(MainScreenDirections.actionMainScreenToOrderProductsScreen())
+        navigator.navigateTo(MainScreenDirections.actionMainScreenToBasketScreen())
 
     override suspend fun navigateProductsDetailsScreen(productWithCount: ProductWithCount) =
         navigator.navigateTo(

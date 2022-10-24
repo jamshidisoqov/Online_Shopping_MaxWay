@@ -42,9 +42,4 @@ class MainViewModelImpl @Inject constructor(
         }
     }
 
-    override fun searchClicked() {
-        viewModelScope.launch {
-            direction.navigateSearchScreen()
-        }
-    }
 }

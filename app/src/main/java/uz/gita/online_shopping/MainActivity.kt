@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             .onEach { it.invoke(fragment.findNavController()) }
             .launchIn(lifecycleScope)
         dialog = ProgressDialog(this)
+
     }
 
     fun showProgress() {

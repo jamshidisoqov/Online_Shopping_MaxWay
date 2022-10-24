@@ -48,6 +48,11 @@ class HomeScreen : Fragment(R.layout.screen_home) {
             if (it) showProgress() else hideProgress()
         }
 
+        viewBinding.tvSearch.setOnClickListener {
+            viewModel.searchClicked()
+        }
+
+
         productAdapter.setItemBasketClickListener {
             viewModel.addBasket(it)
         }

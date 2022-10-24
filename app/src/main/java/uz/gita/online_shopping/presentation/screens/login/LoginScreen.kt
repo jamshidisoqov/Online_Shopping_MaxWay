@@ -13,16 +13,21 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.ldralighieri.corbind.view.clicks
 import uz.gita.online_shopping.R
+import uz.gita.online_shopping.data.remote.RegistrationApi
 import uz.gita.online_shopping.databinding.ScreenLoginBinding
 import uz.gita.online_shopping.presentation.viewmodels.LoginViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.LoginViewModelImpl
 import uz.gita.online_shopping.utils.extensions.*
+import javax.inject.Inject
 
 // Created by Jamshid Isoqov an 10/10/2022
 @AndroidEntryPoint
 class LoginScreen : Fragment(R.layout.screen_login) {
 
     val viewModel: LoginViewModel by viewModels<LoginViewModelImpl>()
+
+    @Inject
+    lateinit var registrationApi: RegistrationApi
 
     val viewBinding: ScreenLoginBinding by viewBinding()
 
@@ -32,7 +37,7 @@ class LoginScreen : Fragment(R.layout.screen_login) {
         viewBinding.btnCheck.clicks()
             .debounce(100L)
             .onEach {
-                val phone = viewBinding.inputPhone.maskString.toString()
+                val phone = viewBinding.inputPhone.text.toString()
                 val name = viewBinding.inputName.text.toString()
                 viewModel.login(phone, name)
             }.launchIn(lifecycleScope)

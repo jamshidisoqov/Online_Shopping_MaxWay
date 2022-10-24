@@ -30,4 +30,6 @@ interface HomeViewModel {
 
     fun openProductDetailsScreen(productWithCount: ProductWithCount)
 
+    fun searchClicked()
+
 }
