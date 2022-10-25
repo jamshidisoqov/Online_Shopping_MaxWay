@@ -24,6 +24,7 @@
             android:fontFamily="@font/sf_pro_semi_bold"
             android:textColor="@color/black"
             android:textSize="24sp"
+            android:layout_marginStart="4dp"
             tools:ignore="RelativeOverlap"
             tools:text="Isoqov Jamshid" />
 
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_user_name"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
             android:textSize="15sp"
             tools:text="+998 90 714 41 02" />
@@ -172,7 +174,6 @@
             android:padding="8dp"
             android:src="@drawable/ic_right"
             tools:ignore="ContentDescription" />
-
     </RelativeLayout>
 
 

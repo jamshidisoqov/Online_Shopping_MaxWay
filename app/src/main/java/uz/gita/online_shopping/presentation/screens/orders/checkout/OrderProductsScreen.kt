@@ -116,6 +116,7 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
     @SuppressLint("SetTextI18n")
     private fun loadOrders(list: List<ProductWithCount>) {
         products = list
+        summ = 0.0
         for (i in list) {
             summ += i.count * i.productData.price
             val orderBinding = ListItemOrderProductsBinding.inflate(layoutInflater)

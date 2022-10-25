@@ -33,7 +33,6 @@ class ActiveOrdersPage : Fragment(R.layout.page_active_orders) {
         viewBinding.listActiveOrders.adapter = adapter
 
         viewModel.allActiveOrders.onEach {
-            toast(it.size.toString())
             adapter.submitList(it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
@@ -53,7 +52,6 @@ class ActiveOrdersPage : Fragment(R.layout.page_active_orders) {
     override fun onResume() {
         super.onResume()
         viewModel.getAllOrders()
-
     }
 
 }

@@ -18,9 +18,7 @@ import uz.gita.online_shopping.databinding.ScreenHomeBinding
 import uz.gita.online_shopping.presentation.viewmodels.HomeViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.HomeViewModelImpl
 import uz.gita.online_shopping.utils.Basket
-import uz.gita.online_shopping.utils.extensions.getFinanceType
-import uz.gita.online_shopping.utils.extensions.hideProgress
-import uz.gita.online_shopping.utils.extensions.showProgress
+import uz.gita.online_shopping.utils.extensions.*
 
 // Created by Jamshid Isoqov an 10/10/2022
 @AndroidEntryPoint
@@ -48,6 +46,14 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         viewModel.loadingSharedFlow.observe(viewLifecycleOwner) {
             if (it) showProgress() else hideProgress()
         }
+
+        viewModel.messageFlow.onEach {
+            showMessageDialog(it)
+        }.launchIn(lifecycleScope)
+
+        viewModel.errorMessageFlow.onEach {
+            showErrorDialog(message = it)
+        }.launchIn(lifecycleScope)
 
         viewBinding.tvSearch.setOnClickListener {
             viewModel.searchClicked()
