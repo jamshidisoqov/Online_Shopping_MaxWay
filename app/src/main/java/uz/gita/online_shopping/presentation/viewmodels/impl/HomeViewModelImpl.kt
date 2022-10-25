@@ -57,8 +57,14 @@ class HomeViewModelImpl @Inject constructor(
     }
 
 
-    override fun categoryItemClick(categoryData: CategoryData) {
-        //TODO sorted category
+    override fun categoryItemClick(categoryData: CategoryData,selectedPos:Int) {
+        if (selectedPos==-1){
+            Basket.productsListLiveData.value = Basket.productsList
+        }else{
+            Basket.productsListLiveData.value = Basket.productsList.filter {
+                it.productData.categoryId ==categoryData.id
+            }
+        }
     }
 
     override fun getAllProducts() {

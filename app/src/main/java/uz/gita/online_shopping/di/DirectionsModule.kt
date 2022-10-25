@@ -42,4 +42,7 @@ interface DirectionsModule {
     @Binds
     fun bindBranchScreen(impl: BranchesDirectionImpl): BranchesDirection
 
+    @Binds
+    fun bindSearchProducts(impl: SearchScreenDirectionImpl): SearchScreenDirection
+
 }

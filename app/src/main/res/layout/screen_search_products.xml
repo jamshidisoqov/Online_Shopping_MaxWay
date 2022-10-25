@@ -21,19 +21,23 @@
             android:layout_weight="1"
             android:background="@drawable/bg_search_view"
             android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
+            android:drawablePadding="12dp"
+            android:gravity="center_vertical"
             android:hint="@string/search"
+            android:textSize="13sp"
             android:importantForAutofill="no"
             android:inputType="text"
             android:paddingHorizontal="12dp"
             tools:ignore="LabelFor" />
 
         <TextView
+            android:id="@+id/tv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:padding="8dp"
             android:fontFamily="@font/sf_pro_semi_bold"
             android:text="@string/cancel"
+            android:background="?selectableItemBackground"
             android:textColor="@color/black"
             android:textSize="15sp" />
     </LinearLayout>

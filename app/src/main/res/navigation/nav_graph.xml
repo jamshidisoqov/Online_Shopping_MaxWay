@@ -55,7 +55,11 @@
         android:id="@+id/searchProductsScreen"
         android:name="uz.gita.online_shopping.presentation.screens.home.search.SearchProductsScreen"
         android:label="SearchProductsScreen"
-        tools:layout="@layout/screen_search_products" />
+        tools:layout="@layout/screen_search_products" >
+        <action
+            android:id="@+id/action_searchProductsScreen_to_productDetailsScreen"
+            app:destination="@id/productDetailsScreen" />
+    </fragment>
     <fragment
         android:id="@+id/productDetailsScreen"
         android:name="uz.gita.online_shopping.presentation.screens.home.details.ProductDetailsScreen"

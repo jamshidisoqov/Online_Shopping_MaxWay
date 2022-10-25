@@ -70,7 +70,7 @@ class HomeScreen : Fragment(R.layout.screen_home) {
         }
 
         categoryAdapter.setCategoryListener {
-            viewModel.categoryItemClick(it)
+            viewModel.categoryItemClick(it,categoryAdapter.selectedPos)
         }
 
         viewModel.categoriesFlow.onEach {

@@ -29,6 +29,8 @@ class BasketScreen : Fragment(R.layout.screen_basket) {
 
     private val viewModel: BasketViewModel by viewModels<BasketViewModelImpl>()
 
+    private lateinit var animator: ValueAnimator
+
     private var oldSum = 0.0
 
     private val viewBinding: ScreenBasketBinding by viewBinding()
@@ -86,7 +88,7 @@ class BasketScreen : Fragment(R.layout.screen_basket) {
         list.forEach {
             sum += it.productData.price * it.count
         }
-        ValueAnimator.ofFloat(oldSum.toFloat(), sum.toFloat()).apply {
+        animator = ValueAnimator.ofFloat(oldSum.toFloat(), sum.toFloat()).apply {
             addUpdateListener {
                 viewBinding.tvOrderValue.text =
                     (it.animatedValue as Float).toDouble().getFinanceType()
@@ -95,5 +97,11 @@ class BasketScreen : Fragment(R.layout.screen_basket) {
             start()
         }
         oldSum = sum
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (animator.isRunning)
+            animator.cancel()
     }
 }

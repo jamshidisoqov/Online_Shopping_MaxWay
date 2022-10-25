@@ -14,7 +14,7 @@ import uz.gita.online_shopping.utils.extensions.inflate
 class CategoryAdapter :
     ListAdapter<CategoryData, CategoryAdapter.ViewHolder>(categoryItemCallback) {
 
-    private var selectedPos = -1
+    var selectedPos = -1
 
     private var categorySelectedListener: ((CategoryData) -> Unit)? = null
 
@@ -27,13 +27,13 @@ class CategoryAdapter :
 
         init {
             binding.tvCategoryName.setOnClickListener {
-                categorySelectedListener?.invoke(getItem(absoluteAdapterPosition))
                 selectedPos = if (selectedPos == absoluteAdapterPosition) {
                     -1
                 } else {
                     notifyItemChanged(selectedPos)
                     absoluteAdapterPosition
                 }
+                categorySelectedListener?.invoke(getItem(absoluteAdapterPosition))
                 notifyItemChanged(absoluteAdapterPosition)
             }
         }

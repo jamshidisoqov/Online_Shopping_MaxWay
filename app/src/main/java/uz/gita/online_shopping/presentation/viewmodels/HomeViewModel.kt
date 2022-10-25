@@ -20,7 +20,7 @@ interface HomeViewModel {
 
     fun getAllCategories()
 
-    fun categoryItemClick(categoryData: CategoryData)
+    fun categoryItemClick(categoryData: CategoryData,selectedPos:Int)
 
     fun getAllProducts()
 
