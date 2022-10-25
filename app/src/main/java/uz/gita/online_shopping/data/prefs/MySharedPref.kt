@@ -19,4 +19,7 @@ class MySharedPref @Inject constructor(
     var name: String by Strings()
 
     var birthday: String by Strings(getCurrentDate())
+
+    var language: Int by Ints(1)
+
 }

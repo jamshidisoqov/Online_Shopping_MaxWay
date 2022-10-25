@@ -53,5 +53,7 @@
     <string name="confirm_orders_basket">Do you really want to confirm the order?</string>
     <string name="save">Save</string>
     <string name="choose_date">Choose date</string>
+    <string name="uzbek">Uzbek</string>
+    <string name="english">English</string>
 
 </resources>

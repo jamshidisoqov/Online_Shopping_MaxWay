@@ -14,11 +14,12 @@
         <item name="android:textAllCaps">false</item>
         <item name="color_grey_dark">@color/dark_grey</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
-    <attr name="color_grey_dark" format="color"/>
+    <attr name="color_grey_dark" format="color" />
 </resources>

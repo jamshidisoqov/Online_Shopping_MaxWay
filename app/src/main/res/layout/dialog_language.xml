@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/bg_language"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/sf_pro_semi_bold"
+        android:textColor="@color/black"
+        android:text="@string/language"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/container_uzbek_lng"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:src="@drawable/uzbek"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/sf_pro_semi_bold"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="16dp"
+            android:text="@string/uzbek"/>
+
+        <ImageView
+            android:id="@+id/image_uzb_check"
+            android:src="@drawable/ic_check"
+            android:layout_width="24dp"
+            android:visibility="invisible"
+            android:layout_height="24dp"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/dark_grey"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_height="1dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/container_english_lng"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:src="@drawable/uk"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/sf_pro_semi_bold"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginStart="16dp"
+            android:text="@string/english"/>
+
+        <ImageView
+            android:id="@+id/image_eng_check"
+            android:src="@drawable/ic_check"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+</LinearLayout>

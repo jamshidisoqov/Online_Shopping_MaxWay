@@ -6,6 +6,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_category_item.xml" value="0.2225" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_category_item_unselected.xml" value="0.2225" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_in_basket_btn.xml" value="0.2225" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_language.xml" value="0.108" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_products_list_item.xml" value="0.2225" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_profile.xml" value="0.1365" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/drawable/bg_search_view.xml" value="0.1175" />
@@ -36,6 +37,7 @@
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_choose_date.xml" value="0.128" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_confirm.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_error.xml" value="0.2039333048311244" />
+        <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_language.xml" value="0.2" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_message.xml" value="0.20307823856348867" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_progress.xml" value="0.176" />
         <entry key="..\:/Users/Jamshid/AndroidStudioProjects/OnlineShopping/app/src/main/res/layout/dialog_succces.xml" value="0.2039333048311244" />
