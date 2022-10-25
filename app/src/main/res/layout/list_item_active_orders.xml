@@ -37,6 +37,7 @@
         app:sv_doneCircleRadius="12dp"
         app:sv_doneStepLineColor="@color/primary"
         app:sv_doneTextColor="@color/primary"
+        app:sv_doneStepMarkColor="@color/white"
         app:sv_nextStepCircleColor="@color/light_grey"
         app:sv_nextStepCircleEnabled="true"
         app:sv_nextStepLineColor="@color/light_grey"

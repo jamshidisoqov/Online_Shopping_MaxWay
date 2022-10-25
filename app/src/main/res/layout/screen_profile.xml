@@ -42,6 +42,7 @@
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:background="?selectableItemBackground"
             android:padding="4dp"
             android:src="@drawable/ic_edit"
             app:tint="@color/primary"

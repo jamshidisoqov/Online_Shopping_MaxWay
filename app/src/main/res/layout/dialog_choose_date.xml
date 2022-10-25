@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="330dp"
+    android:layout_width="320dp"
     android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    app:cardBackgroundColor="@color/white"
+    android:layout_margin="8dp"
     app:cardCornerRadius="12dp">
 
     <LinearLayout
-        android:layout_width="330dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
@@ -17,20 +15,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/sf_pro_semi_bold"
-            android:text="@string/confirm_order"
+            android:textSize="22sp"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:fontFamily="@font/sf_pro_semi_bold"
+            android:text="@string/choose_date"/>
 
-        <TextView
-            android:id="@+id/tv_message"
+        <DatePicker
+            android:id="@+id/calendar_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"
             android:layout_marginTop="12dp"
-            android:text="@string/confirm_orders_basket"
-            android:textColor="@color/black"/>
-
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,13 +44,13 @@
                 android:textColor="@color/black" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_confirm"
+                android:id="@+id/btn_save"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_to_basket_btn"
-                android:text="@string/yes"
+                android:text="@string/save"
                 android:textColor="@color/white" />
 
         </LinearLayout>

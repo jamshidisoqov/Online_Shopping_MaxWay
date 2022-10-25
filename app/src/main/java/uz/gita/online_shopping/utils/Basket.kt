@@ -13,11 +13,13 @@ object Basket {
     val onTheSelfList = listOf("Ordered", " Confirmed", "Delivered")
     val deliveredList = listOf("Ordered", " Confirmed", "On the way", "Delivered")
 
-    private var productsList = ArrayList<ProductWithCount>()
+    var productsList = ArrayList<ProductWithCount>()
 
     var locationLiveData = MutableLiveData<Pair<String,LatLng>>()
 
     fun setList(list: List<ProductData>) {
+
+        productsList.clear()
 
         productsList.addAll(list.map {
             ProductWithCount(it, 0)

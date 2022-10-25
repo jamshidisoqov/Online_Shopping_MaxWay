@@ -25,8 +25,7 @@ class ActiveOrderAdapter :
                 tvOrderStatus.text = data.status.name
                 val count = if (data.orderType == OrderType.SELF_CALL) 3 else 4
                 orderStepView.setStepsNumber(count)
-                orderStepView.setSteps(if (count == 3) Basket.onTheSelfList else Basket.deliveredList)
-                orderStepView.go(data.status.ordinal, true)
+                orderStepView.go(data.status.ordinal+1, true)
             }
         }
     }

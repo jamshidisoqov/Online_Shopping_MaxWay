@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.launchIn
@@ -17,6 +18,7 @@ import uz.gita.online_shopping.presentation.viewmodels.ProfileViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.ProfileViewModelImpl
 
 // Created by Jamshid Isoqov an 10/10/2022
+@AndroidEntryPoint
 class ProfileScreen : Fragment(R.layout.screen_profile) {
 
     private val viewModel: ProfileViewModel by viewModels<ProfileViewModelImpl>()
@@ -50,7 +52,7 @@ class ProfileScreen : Fragment(R.layout.screen_profile) {
             viewModel.editProfile()
         }.launchIn(lifecycleScope)
 
-
+        viewModel.getData()
     }
 
 

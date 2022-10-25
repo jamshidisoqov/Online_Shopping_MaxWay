@@ -5,12 +5,23 @@ import kotlinx.coroutines.flow.flow
 import uz.gita.online_shopping.data.models.*
 import uz.gita.online_shopping.data.models.dto.ClientDto
 import uz.gita.online_shopping.data.models.dto.OrderDto
+import uz.gita.online_shopping.data.models.enums.OrderStatus
 import uz.gita.online_shopping.data.models.other.ResultData
+import uz.gita.online_shopping.data.prefs.MySharedPref
 import uz.gita.online_shopping.repository.MaxWayRepository
+import uz.gita.online_shopping.utils.extensions.getCurrentDate
 import javax.inject.Inject
 
 // Created by Jamshid Isoqov an 10/24/2022
-class FakeRepository @Inject constructor() : MaxWayRepository {
+
+class FakeRepository @Inject constructor(
+    private val mySharedPref: MySharedPref
+) : MaxWayRepository {
+    private val activeOrders = ArrayList<OrderData>()
+
+    private val inActiveOrders = ArrayList<OrderData>()
+
+
     override fun loginUser(clientDto: ClientDto): Flow<ResultData<ClientData>> {
         TODO("Not yet implemented")
     }
@@ -56,49 +67,73 @@ class FakeRepository @Inject constructor() : MaxWayRepository {
         TODO("Not yet implemented")
     }
 
-    override fun getOrdersHistory(): Flow<ResultData<List<OrderData>>> {
-        TODO("Not yet implemented")
+    override fun getOrdersHistory(): Flow<ResultData<List<OrderData>>> = flow {
+        emit(ResultData.Success(inActiveOrders))
     }
 
-    override fun getActiveOrders(): Flow<ResultData<List<OrderData>>> {
-        TODO("Not yet implemented")
+    override fun getActiveOrders(): Flow<ResultData<List<OrderData>>> = flow {
+        emit(ResultData.Success(activeOrders))
     }
 
-    override fun orderProducts(orderDto: OrderDto): Flow<ResultData<OrderData>> {
-        TODO("Not yet implemented")
+    override fun orderProducts(orderDto: OrderDto): Flow<ResultData<OrderData>> = flow {
+        val orderData = OrderData(
+            1, orderDto.productOrder, 12.0, orderDto.orderType, OrderStatus.ORDERED,
+            getCurrentDate(), orderDto.address, orderDto.comment
+        )
+        activeOrders.add(orderData)
+
+        emit(ResultData.Success(orderData))
     }
 
-    override fun getAllBranches(): Flow<ResultData<List<BranchData>>> {
-        TODO("Not yet implemented")
+    override fun getAllBranches(): Flow<ResultData<List<BranchData>>> = flow {
+        emit(
+            ResultData.Success(
+                listOf(
+                    BranchData(
+                        1,
+                        "улица Катартал, 60/5",
+                        address = Address(41.293915, 69.212829),
+                        "https://maxway.uz/images/Rectangle/max-way.png",
+                        "Max Way Parus",
+                        "+998 71 200 54 00",
+                        "10:00-03:00"
+                    ),
+                    BranchData(
+                        2,
+                        "улица Бабура, 174/6",
+                        address = Address(41.2713019, 69.2577589),
+                        "https://maxway.uz/images/Rectangle/max-way.png",
+                        "MAX WAY MAGIC CITY",
+                        "+998 71 200 54 00",
+                        "10:00-22:00"
+                    )
+
+                )
+            )
+        )
     }
 
-    override suspend fun getName(): String {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getName(): String = mySharedPref.name
 
     override suspend fun setName(name: String) {
-        TODO("Not yet implemented")
+        mySharedPref.name = name
     }
 
-    override suspend fun getPhone(): String {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getPhone(): String = mySharedPref.phone
 
     override suspend fun setPhone(phone: String) {
-        TODO("Not yet implemented")
+        mySharedPref.phone = phone
     }
 
-    override suspend fun getBirthday(): String {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getBirthday(): String = mySharedPref.birthday
 
     override suspend fun setBirthday(birthday: String) {
-        TODO("Not yet implemented")
+        mySharedPref.birthday = birthday
     }
 
-    override suspend fun getToken(): String = "token"
+    override suspend fun getToken(): String = mySharedPref.token
 
     override suspend fun setToken(token: String) {
-        TODO("Not yet implemented")
+        mySharedPref.token = token
     }
 }

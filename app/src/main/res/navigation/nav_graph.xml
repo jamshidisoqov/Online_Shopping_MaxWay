@@ -64,6 +64,11 @@
         <argument
             android:name="product_count"
             app:argType="uz.gita.online_shopping.data.models.ProductWithCount" />
+        <action
+            android:id="@+id/action_productDetailsScreen_to_basketScreen"
+            app:destination="@id/basketScreen"
+            app:popUpTo="@id/productDetailsScreen"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/orderProductsScreen"
@@ -73,6 +78,10 @@
         <action
             android:id="@+id/action_orderProductsScreen_to_orderMapFragment"
             app:destination="@id/orderMapFragment" />
+        <action
+            android:id="@+id/action_orderProductsScreen_to_mainScreen"
+            app:destination="@id/mainScreen"
+            app:popUpTo="@id/nav_graph" />
     </fragment>
     <fragment
         android:id="@+id/profileDetails"
@@ -83,7 +92,11 @@
         android:id="@+id/branchesScreen"
         android:name="uz.gita.online_shopping.presentation.screens.branches.BranchesScreen"
         android:label="BranchesScreen"
-        tools:layout="@layout/screen_branches" />
+        tools:layout="@layout/screen_branches" >
+        <action
+            android:id="@+id/action_branchesScreen_to_branchDetailsScreen"
+            app:destination="@id/branchDetailsScreen" />
+    </fragment>
     <fragment
         android:id="@+id/serviceScreen"
         android:name="uz.gita.online_shopping.presentation.screens.service.ServiceScreen"
@@ -122,4 +135,13 @@
         tools:layout="@layout/screen_map"
         android:name="uz.gita.online_shopping.presentation.screens.orders.checkout.map.OrderMapFragment"
         android:label="OrderMapFragment" />
+    <fragment
+        android:id="@+id/branchDetailsScreen"
+        tools:layout="@layout/screen_branch_details"
+        android:name="uz.gita.online_shopping.presentation.screens.branches.details.BranchDetailsScreen"
+        android:label="BranchDetailsScreen" >
+        <argument
+            android:name="branch_data"
+            app:argType="uz.gita.online_shopping.data.models.BranchData" />
+    </fragment>
 </navigation>

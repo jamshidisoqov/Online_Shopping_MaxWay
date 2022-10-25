@@ -13,10 +13,7 @@ import uz.gita.online_shopping.R
 import uz.gita.online_shopping.databinding.PageActiveOrdersBinding
 import uz.gita.online_shopping.presentation.viewmodels.ActiveOrderViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.ActiveOrderViewModelImpl
-import uz.gita.online_shopping.utils.extensions.hideProgress
-import uz.gita.online_shopping.utils.extensions.showErrorDialog
-import uz.gita.online_shopping.utils.extensions.showMessageDialog
-import uz.gita.online_shopping.utils.extensions.showProgress
+import uz.gita.online_shopping.utils.extensions.*
 
 // Created by Jamshid Isoqov an 10/13/2022
 
@@ -33,11 +30,10 @@ class ActiveOrdersPage : Fragment(R.layout.page_active_orders) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        viewModel.getAllOrders()
-
         viewBinding.listActiveOrders.adapter = adapter
 
         viewModel.allActiveOrders.onEach {
+            toast(it.size.toString())
             adapter.submitList(it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
@@ -52,8 +48,11 @@ class ActiveOrdersPage : Fragment(R.layout.page_active_orders) {
         viewModel.errorMessageFlow.onEach {
             showErrorDialog(message = it)
         }.launchIn(lifecycleScope)
-        
+    }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllOrders()
 
     }
 

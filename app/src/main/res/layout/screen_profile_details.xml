@@ -41,20 +41,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="@string/name" />
+            android:text="@string/name"
+            android:textSize="15sp" />
 
         <EditText
             android:id="@+id/input_name"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="8dp"
-            android:padding="12dp"
-            tools:text="Jamshid Isoqov"
             android:background="@drawable/bg_products_list_item"
             android:importantForAutofill="no"
             android:inputType="text"
-            tools:ignore="LabelFor" />
+            android:padding="12dp"
+            tools:ignore="LabelFor"
+            tools:text="Jamshid Isoqov" />
     </LinearLayout>
 
     <LinearLayout
@@ -67,20 +67,21 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="@string/phone" />
+            android:text="@string/phone"
+            android:textSize="15sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/input_phone"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="8dp"
-            android:padding="12dp"
-            tools:text="+998 90 714 41 02"
             android:background="@drawable/bg_products_list_item"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            tools:ignore="LabelFor,TextFields" />
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:ignore="LabelFor"
+            tools:text="+998 90 714 41 02" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,21 +94,35 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="@string/birthday" />
+            android:text="@string/birthday"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/input_birthday"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/bg_products_list_item"
+            android:gravity="center_vertical"
             android:padding="12dp"
             android:textColor="@color/black"
-            android:gravity="center_vertical"
             android:textSize="16sp"
-            tools:text="Feb 10.2022"
-            android:background="@drawable/bg_products_list_item"
-            tools:ignore="LabelFor" />
+            tools:ignore="LabelFor"
+            tools:text="Feb 10.2022" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_to_basket_btn"
+        android:text="@string/confirm"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

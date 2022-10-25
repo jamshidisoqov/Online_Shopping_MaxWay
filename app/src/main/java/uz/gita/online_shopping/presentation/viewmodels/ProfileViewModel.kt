@@ -16,4 +16,6 @@ interface ProfileViewModel {
     fun openSettings()
 
     fun openServices()
+
+    fun getData()
 }

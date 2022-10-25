@@ -7,7 +7,6 @@ import uz.gita.online_shopping.data.models.enums.OrderType
 data class OrderData(
     val id: Long,
     val productOrder: List<ProductOrder>,
-    val orderNumber: Long,
     val allPrice: Double,
     val orderType: OrderType,
     val status: OrderStatus,

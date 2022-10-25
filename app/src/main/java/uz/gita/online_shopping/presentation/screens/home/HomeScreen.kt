@@ -53,7 +53,6 @@ class HomeScreen : Fragment(R.layout.screen_home) {
             viewModel.searchClicked()
         }
 
-
         productAdapter.setItemBasketClickListener {
             viewModel.addBasket(it)
         }

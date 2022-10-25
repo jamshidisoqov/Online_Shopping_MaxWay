@@ -50,4 +50,8 @@
     <string name="location_settings">Включить</string>
     <string name="enable_location_message">GPS отключен.\nПожалуйста, включите геолокацию</string>
 
+    <string name="confirm_orders_basket">Do you really want to confirm the order?</string>
+    <string name="save">Save</string>
+    <string name="choose_date">Choose date</string>
+
 </resources>

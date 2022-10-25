@@ -3,6 +3,7 @@ package uz.gita.online_shopping.data.prefs
 import android.content.Context
 import android.content.SharedPreferences
 import uz.gita.online_shopping.utils.SharedPreference
+import uz.gita.online_shopping.utils.extensions.getCurrentDate
 import javax.inject.Inject
 
 // Created by Jamshid Isoqov an 9/23/2022
@@ -17,5 +18,5 @@ class MySharedPref @Inject constructor(
 
     var name: String by Strings()
 
-    var birthday: String by Strings()
+    var birthday: String by Strings(getCurrentDate())
 }

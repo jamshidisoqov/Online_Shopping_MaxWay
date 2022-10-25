@@ -33,4 +33,13 @@ interface DirectionsModule {
     @Binds
     fun bindPasswordCheckoutScreen(impl: PasswordCheckoutScreenDirectionImpl): PasswordCheckoutScreenDirection
 
+    @Binds
+    fun bindProductDetailsScreen(impl: ProductDetailsDirectionImpl): ProductDetailsDirection
+
+    @Binds
+    fun bindOrderProductsScreen(impl: OrderProductDirectionImpl): OrderProductDirection
+
+    @Binds
+    fun bindBranchScreen(impl: BranchesDirectionImpl): BranchesDirection
+
 }

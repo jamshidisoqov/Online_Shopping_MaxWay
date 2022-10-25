@@ -1,6 +1,7 @@
 package uz.gita.online_shopping.presentation.screens.home.details
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -16,7 +17,6 @@ import uz.gita.online_shopping.R
 import uz.gita.online_shopping.databinding.ScreenProductDetailsBinding
 import uz.gita.online_shopping.presentation.viewmodels.ProductViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.ProductViewModelImpl
-import javax.net.ssl.HttpsURLConnection
 
 // Created by Jamshid Isoqov an 10/10/2022
 @AndroidEntryPoint
@@ -31,7 +31,6 @@ class ProductDetailsScreen : Fragment(R.layout.screen_product_details) {
     @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        viewModel.setProduct(navArgs.productCount)
         viewModel.productFlow.onEach { productWithCount ->
 
             val productData = productWithCount.productData
@@ -39,6 +38,7 @@ class ProductDetailsScreen : Fragment(R.layout.screen_product_details) {
             viewBinding.apply {
                 tvProductName.text = productData.name
                 tvDescription.text = productData.desc
+                tvProductCategoryName.text = productData.name
                 Glide.with(requireContext())
                     .load(productData.imageUrl)
                     .placeholder(R.drawable.place)
@@ -46,22 +46,23 @@ class ProductDetailsScreen : Fragment(R.layout.screen_product_details) {
                 btnToBasket.apply {
                     if (productWithCount.count == 0) {
                         text = resources.getString(R.string.to_basket)
-                        setTextColor(R.color.white)
+                        setTextColor(Color.WHITE)
                         setBackgroundResource(R.drawable.bg_to_basket_btn)
                     } else {
-                        setTextColor(R.color.black)
+                        setTextColor(Color.BLACK)
                         setBackgroundResource(R.drawable.bg_in_basket_btn)
                         text = resources.getString(R.string.in_basket)
                     }
                     setOnClickListener {
                         if (productWithCount.count > 0) {
                             viewModel.openBasketScreen()
-                        } else viewModel.productBasketClick()
+                        } else {
+                            viewModel.productBasketClick()
+                        }
                     }
                 }
             }
-
         }.launchIn(viewLifecycleOwner.lifecycleScope)
-
+        viewModel.setProduct(navArgs.productCount)
     }
 }

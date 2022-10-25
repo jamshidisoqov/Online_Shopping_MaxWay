@@ -4,14 +4,8 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import uz.gita.online_shopping.domain.LoginUseCase
-import uz.gita.online_shopping.domain.MainUseCase
-import uz.gita.online_shopping.domain.OrderUseCase
-import uz.gita.online_shopping.domain.ProfileUseCase
-import uz.gita.online_shopping.domain.impl.LoginUseCaseImpl
-import uz.gita.online_shopping.domain.impl.MainUseCaseImpl
-import uz.gita.online_shopping.domain.impl.OrderUseCaseImpl
-import uz.gita.online_shopping.domain.impl.ProfileUseCaseImpl
+import uz.gita.online_shopping.domain.*
+import uz.gita.online_shopping.domain.impl.*
 
 // Created by Jamshid Isoqov an 10/9/2022
 @Module
@@ -29,4 +23,8 @@ interface UseCaseModule {
 
     @Binds
     fun bindLoginUseCase(impl: LoginUseCaseImpl): LoginUseCase
+
+    @Binds
+    fun bindBranchUseCase(impl: BranchesUseCaseImpl): BranchesUseCase
+
 }

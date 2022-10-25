@@ -20,10 +20,7 @@ class ProfileViewModelImpl @Inject constructor(
     override val phoneFlow = MutableStateFlow("")
 
     init {
-        viewModelScope.launch {
-            nameFlow.emit(profileUseCase.getName())
-            phoneFlow.emit(profileUseCase.getPhone())
-        }
+       getData()
     }
 
     override fun editProfile() {
@@ -47,6 +44,13 @@ class ProfileViewModelImpl @Inject constructor(
     override fun openServices() {
         viewModelScope.launch {
             direction.openServices()
+        }
+    }
+
+    override fun getData() {
+        viewModelScope.launch {
+            nameFlow.emit(profileUseCase.getName())
+            phoneFlow.emit(profileUseCase.getPhone())
         }
     }
 }

@@ -14,8 +14,11 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import uz.gita.online_shopping.R
 import uz.gita.online_shopping.data.models.ProductWithCount
+import uz.gita.online_shopping.data.models.dto.OrderDto
+import uz.gita.online_shopping.data.models.enums.OrderType
 import uz.gita.online_shopping.databinding.ListItemOrderProductsBinding
 import uz.gita.online_shopping.databinding.ScreenOrderProductsBinding
+import uz.gita.online_shopping.presentation.dialogs.ConfirmDialog
 import uz.gita.online_shopping.presentation.viewmodels.OrderProductsViewModel
 import uz.gita.online_shopping.presentation.viewmodels.impl.OrderProductsViewModelImpl
 import uz.gita.online_shopping.utils.Basket
@@ -29,7 +32,13 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
 
     private val viewBinding: ScreenOrderProductsBinding by viewBinding()
 
-    private lateinit var address: LatLng
+    private var orderType: OrderType = OrderType.SELF_CALL
+
+    private lateinit var products: List<ProductWithCount>
+
+    private var summ = 0.0
+
+    private var address: LatLng? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -55,15 +64,33 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
 
         viewModel.isDeliveryFlow.onEach {
             if (it) {
+                orderType = OrderType.DELIVERY
                 viewBinding.imageCheckDelivery.visible()
                 viewBinding.imageCheckOnTheWay.inVisible()
                 viewBinding.containerMap.visible()
             } else {
+                orderType = OrderType.SELF_CALL
                 viewBinding.imageCheckDelivery.inVisible()
                 viewBinding.imageCheckOnTheWay.visible()
                 viewBinding.containerMap.gone()
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+        viewBinding.btnConfirm.setOnClickListener {
+            val confirmDialog = ConfirmDialog(requireContext())
+            confirmDialog.setConfirmClickListener {
+                viewModel.orderConfirmClick(
+                    OrderDto(
+                        products.map { it.toProductOrder() },
+                        summ,
+                        orderType,
+                        address = if (address != null) address?.toAddress() else null,
+                        comment = viewBinding.inputComment.text.toString()
+                    )
+                )
+            }
+            confirmDialog.show()
+        }
 
         viewBinding.apply {
 
@@ -72,7 +99,7 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
             containerDelivery.setOnClickListener { viewModel.setDeliveryMethod(true) }
 
             containerMap.setOnClickListener {
-                findNavController().navigate(OrderProductsScreenDirections.actionOrderProductsScreenToOrderMapFragment())
+                viewModel.navigateToMap()
             }
         }
 
@@ -88,7 +115,7 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
 
     @SuppressLint("SetTextI18n")
     private fun loadOrders(list: List<ProductWithCount>) {
-        var summ = 0.0
+        products = list
         for (i in list) {
             summ += i.count * i.productData.price
             val orderBinding = ListItemOrderProductsBinding.inflate(layoutInflater)

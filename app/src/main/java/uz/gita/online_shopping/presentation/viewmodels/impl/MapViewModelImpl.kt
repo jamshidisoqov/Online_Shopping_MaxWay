@@ -12,7 +12,6 @@ import com.google.android.gms.tasks.CancellationTokenSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.gita.online_shopping.presentation.viewmodels.MapViewModel
@@ -75,7 +74,7 @@ class MapViewModelImpl @Inject constructor(
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
                         val location = task.result
-                        currentLocationFlow.postValue(LatLng(location.latitude,location.longitude))
+                        currentLocationFlow.postValue(LatLng(location.latitude, location.longitude))
                     } else {
                         errorFlow.tryEmit(task.exception!!.localizedMessage!!)
                     }

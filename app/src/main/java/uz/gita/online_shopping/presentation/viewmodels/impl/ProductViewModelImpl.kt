@@ -7,13 +7,14 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
 import uz.gita.online_shopping.data.models.ProductWithCount
 import uz.gita.online_shopping.directions.MainScreenDirection
+import uz.gita.online_shopping.directions.ProductDetailsDirection
 import uz.gita.online_shopping.presentation.viewmodels.ProductViewModel
 import uz.gita.online_shopping.utils.Basket
 import javax.inject.Inject
 
 @HiltViewModel
 class ProductViewModelImpl @Inject constructor(
-    private val direction: MainScreenDirection
+   private var productDetailsDirection: ProductDetailsDirection
 ) : ProductViewModel, ViewModel() {
 
     override val productFlow = MutableSharedFlow<ProductWithCount>()
@@ -29,11 +30,14 @@ class ProductViewModelImpl @Inject constructor(
 
     override fun openBasketScreen() {
         viewModelScope.launch {
-            direction.navigateBasketScreen()
+           productDetailsDirection.navigateToBasket()
         }
     }
 
     override fun productBasketClick() {
+        viewModelScope.launch {
+        productFlow.emit(productWithCount.copy(count = 1))
+        }
         Basket.addProduct(productWithCount)
     }
 }
