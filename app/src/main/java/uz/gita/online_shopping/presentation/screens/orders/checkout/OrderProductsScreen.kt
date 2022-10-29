@@ -6,7 +6,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
@@ -32,7 +31,7 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
 
     private val viewBinding: ScreenOrderProductsBinding by viewBinding()
 
-    private var orderType: OrderType = OrderType.SELF_CALL
+    private var orderType: OrderType = OrderType.SIMPLE
 
     private lateinit var products: List<ProductWithCount>
 
@@ -69,7 +68,7 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
                 viewBinding.imageCheckOnTheWay.inVisible()
                 viewBinding.containerMap.visible()
             } else {
-                orderType = OrderType.SELF_CALL
+                orderType = OrderType.SIMPLE
                 viewBinding.imageCheckDelivery.inVisible()
                 viewBinding.imageCheckOnTheWay.visible()
                 viewBinding.containerMap.gone()
@@ -81,11 +80,10 @@ class OrderProductsScreen : Fragment(R.layout.screen_order_products) {
             confirmDialog.setConfirmClickListener {
                 viewModel.orderConfirmClick(
                     OrderDto(
-                        products.map { it.toProductOrder() },
-                        summ,
+                        products.map { it.toOrderItem() }.toHashSet(),
+                        comment = viewBinding.inputComment.text.toString(),
                         orderType,
                         address = if (address != null) address?.toAddress() else null,
-                        comment = viewBinding.inputComment.text.toString()
                     )
                 )
             }

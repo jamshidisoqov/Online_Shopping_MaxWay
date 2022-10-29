@@ -23,7 +23,7 @@ class ActiveOrderAdapter :
             binding.apply {
                 tvOrderName.text = data.id.getOrderName()
                 tvOrderStatus.text = data.status.name
-                val count = if (data.orderType == OrderType.SELF_CALL) 3 else 4
+                val count = if (data.orderType == OrderType.SIMPLE) 3 else 4
                 orderStepView.setStepsNumber(count)
                 orderStepView.go(data.status.ordinal+1, true)
             }

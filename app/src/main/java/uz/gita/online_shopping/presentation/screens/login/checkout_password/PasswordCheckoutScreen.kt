@@ -64,22 +64,16 @@ class PasswordCheckoutScreen : Fragment(R.layout.screen_password_checkout) {
                 override fun onVerificationCompleted(p0: PhoneAuthCredential) {
                     val code = p0.smsCode
                     if (code != null) {
-                        verifyCode(code)
-                        Log.d("TTT", "onVerificationFailed:$code ")
+                        verificationId =code
                     }
                 }
 
                 override fun onVerificationFailed(p0: FirebaseException) {
-                    Log.d("TTT", "onVerificationFailed:${p0.localizedMessage} ")
                     toast(p0.localizedMessage!!)
                 }
 
             })
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
-    }
-
-    private fun verifyCode(code: String) {
-
     }
 }

@@ -42,7 +42,6 @@ class LoginViewModelImpl @Inject constructor(
                 .onSuccess {
                     profileUseCase.setName(it.name)
                     profileUseCase.setPhone(it.phone)
-                    profileUseCase.setToken(it.token)
                     direction.navigateToPasswordChecker()
                 }
         }

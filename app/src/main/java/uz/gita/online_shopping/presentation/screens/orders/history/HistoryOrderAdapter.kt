@@ -35,7 +35,7 @@ class HistoryOrderAdapter :
             binding.apply {
                 tvOrderName.text = data.id.getOrderName()
                 tvOrderPrice.text = data.allPrice.getFinanceType()
-                tvOrderDate.text = data.date
+                tvOrderDate.text = data.createdDate
             }
         }
     }

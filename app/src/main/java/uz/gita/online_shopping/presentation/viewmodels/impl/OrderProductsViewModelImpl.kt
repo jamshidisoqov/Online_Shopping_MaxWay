@@ -40,7 +40,7 @@ class OrderProductsViewModelImpl @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             loadingFlow.emit(true)
             orderUseCase.orderProducts(orderDto).collectLatest {
-                it.onSuccess { success ->
+                it.onSuccess {
                     successFlow.emit("Successfully ordered ")
                     withContext(Dispatchers.Main) {
                         Basket.setList(Basket.productsList.map { it.productData })

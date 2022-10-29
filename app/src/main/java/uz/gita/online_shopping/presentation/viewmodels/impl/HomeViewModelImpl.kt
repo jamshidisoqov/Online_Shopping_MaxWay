@@ -40,7 +40,7 @@ class HomeViewModelImpl @Inject constructor(
         mainUseCase.getAllCategories()
             .onEach {
                 it.onSuccess { list ->
-                    categoriesFlow.emit(list)
+                    categoriesFlow.emit(list.map { category -> category.toCategoryData()})
                 }
             }
             .onEach {
@@ -72,7 +72,7 @@ class HomeViewModelImpl @Inject constructor(
             loadingSharedFlow.value = true
             mainUseCase.getAllProducts().collectLatest {
                 it.onSuccess { list ->
-                    Basket.setList(list)
+                    Basket.setList(list.map { productDto ->  productDto.toProductData()})
                 }
                 it.onMessage { message ->
                     messageFlow.emit(message)

@@ -1,7 +1,7 @@
 package uz.gita.online_shopping.data.models
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 // Created by Jamshid Isoqov an 10/8/2022
 @Parcelize
@@ -12,4 +12,4 @@ data class ProductData(
     val price: Double,
     val desc: String,
     val categoryId: Long
-):Parcelable
+) : Parcelable

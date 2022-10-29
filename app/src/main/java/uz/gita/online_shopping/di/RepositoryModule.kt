@@ -5,7 +5,6 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.gita.online_shopping.repository.MaxWayRepository
-import uz.gita.online_shopping.repository.impl.FakeRepository
 import uz.gita.online_shopping.repository.impl.MaxWayRepositoryImpl
 import javax.inject.Singleton
 
@@ -15,6 +14,6 @@ import javax.inject.Singleton
 interface RepositoryModule {
 
     @[Binds Singleton]
-    fun bindMaxWayRepository(impl: FakeRepository): MaxWayRepository
+    fun bindMaxWayRepository(impl: MaxWayRepositoryImpl): MaxWayRepository
 
 }

@@ -6,8 +6,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import uz.gita.online_shopping.data.models.*
+import uz.gita.online_shopping.data.models.dto.Category
 import uz.gita.online_shopping.data.models.dto.ClientDto
 import uz.gita.online_shopping.data.models.dto.OrderDto
+import uz.gita.online_shopping.data.models.dto.ProductDto
 import uz.gita.online_shopping.data.models.other.ResultData
 import uz.gita.online_shopping.data.prefs.MySharedPref
 import uz.gita.online_shopping.data.remote.MaxWayApi
@@ -56,7 +58,7 @@ class MaxWayRepositoryImpl @Inject constructor(
             emit(ResultData.Error(error))
         }.flowOn(Dispatchers.IO)
 
-    override fun getAllCategories(): Flow<ResultData<List<CategoryData>>> =
+    override fun getAllCategories(): Flow<ResultData<List<Category>>> =
         flow {
             if (hasConnection()) {
                 emit(maxWayApi.getAllCategories().func())
@@ -67,7 +69,7 @@ class MaxWayRepositoryImpl @Inject constructor(
             emit(ResultData.Error(error))
         }.flowOn(Dispatchers.IO)
 
-    override fun getAllProducts(): Flow<ResultData<List<ProductData>>> =
+    override fun getAllProducts(): Flow<ResultData<List<ProductDto>>> =
         flow {
             if (hasConnection()) {
                 emit(maxWayApi.getAllProducts().func())
@@ -78,7 +80,7 @@ class MaxWayRepositoryImpl @Inject constructor(
             emit(ResultData.Error(error))
         }.flowOn(Dispatchers.IO)
 
-    override fun searchProducts(): Flow<ResultData<List<ProductData>>> =
+    override fun searchProducts(): Flow<ResultData<List<ProductDto>>> =
         flow {
             if (hasConnection()) {
                 emit(maxWayApi.searchProducts("data").func())

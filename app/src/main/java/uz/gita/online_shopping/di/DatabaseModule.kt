@@ -13,7 +13,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uz.gita.online_shopping.data.prefs.MySharedPref
 import uz.gita.online_shopping.data.remote.MaxWayApi
-import uz.gita.online_shopping.data.remote.RegistrationApi
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
@@ -23,9 +22,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    private const val BASE_URL = "https://restcountries.com/v2/all/"
-
-    private const val REGISTRATION_BASE_URL = "https://xr8rve.api.infobip.com/"
+    private const val BASE_URL = "https://8fca-95-214-211-111.eu.ngrok.io/"
 
     private const val CONNECTION_TIME_OUT = 5000L
 
@@ -44,19 +41,6 @@ object DatabaseModule {
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
-
-    @[Provides Singleton Named(value = "registrationApi")]
-    fun provideRetrofitRegistration(okHttpClient: OkHttpClient): Retrofit =
-        Retrofit.Builder()
-            .baseUrl(REGISTRATION_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(okHttpClient)
-            .build()
-
-    @[Provides Singleton]
-    fun provideRegistrationApi(@Named("registrationApi") retrofit: Retrofit): RegistrationApi =
-        retrofit.create(RegistrationApi::class.java)
-
 
     @[Provides Singleton]
     fun provideMaxWayApi(@Named("mainApi") retrofit: Retrofit): MaxWayApi =

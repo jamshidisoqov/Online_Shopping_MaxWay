@@ -10,9 +10,8 @@ class LoginUseCaseImpl @Inject constructor() : LoginUseCase {
     override suspend fun loginUser(clientDto: ClientDto): ResultData<ClientData> {
         return ResultData.Success(
             ClientData(
-                "token",
-                clientDto.phone,
-                clientDto.name,
+                clientDto.phoneNumber,
+                clientDto.fullName,
                 null
             )
         )
